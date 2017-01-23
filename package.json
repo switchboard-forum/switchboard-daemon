@@ -1,0 +1,23 @@
+{
+  "name": "switchboard-daemon",
+  "version": "0.0.1",
+  "description": "Reference daemon for \"switchboard\" forum standard",
+  "main": "base.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/switchboard-forum/switchboard-daemon.git"
+  },
+  "keywords": [
+    "really",
+    "dumb"
+  ],
+  "author": "Hugh Mungus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/switchboard-forum/switchboard-daemon/issues"
+  },
+  "homepage": "https://github.com/switchboard-forum/switchboard-daemon#readme"
+}
