@@ -4,7 +4,7 @@
   "description": "Reference daemon for \"switchboard\" forum standard",
   "main": "tcp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tcp.js"
   },
   "repository": {
     "type": "git",
