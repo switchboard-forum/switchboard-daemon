@@ -1,8 +1,18 @@
 let net = require("net");
 let config = require("./config");
 
-let plugins = config.plugins.map(plugin => {
-  return require(plugin);
+//let plugins = config.plugins.map(plugin => {
+//  return require(plugin);
+//});
+let plugins = {};
+
+config.plugins.forEach(plugin => {
+    plugins[plugin.name] = require(plugin.file);
+
+});
+
+let filters = config.filters.map(filter => {
+  return require(filter);
 });
 
 const host = config.host;
@@ -14,9 +24,13 @@ let server = net.createServer(socket => {
   socket.on("data", data => {
     console.log(data);
     let dataSerialized = JSON.parse(data);
-    plugins.forEach(plugin => {
-      dataSerialized = plugin.parse(dataSerialized);
-    });
+      if (dataSerialized.subject.indexOf('!!') == 0) {
+        dataSerialized = plugins[dataSerialized.subject.slice(2)].parse(dataSerialized);
+    } else {
+        filters.forEach(filter => {
+            dataSerialized = filter.parse(dataSerialized);
+        });
+    }
     socket.write(JSON.stringify(dataSerialized));
   });
 });

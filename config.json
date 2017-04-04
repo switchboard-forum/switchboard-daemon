@@ -3,7 +3,13 @@
   "port" : 31337,
 
   "plugins" : [
-    "./process",
-    "./tripcode"
+    {
+      "file": "./hello",
+      "name": "hello"
+    }
+  ],
+
+  "filters" : [
+    "./filter"
   ]
 }
