@@ -22,7 +22,6 @@ let server = net.createServer(socket => {
   console.log("connected");
 
   socket.on("data", data => {
-    console.log(data);
     let dataSerialized = JSON.parse(data);
       if (dataSerialized.subject.indexOf('!!') == 0) {
         dataSerialized = plugins[dataSerialized.subject.slice(2)].parse(dataSerialized);
